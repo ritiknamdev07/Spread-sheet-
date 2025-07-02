@@ -1,6 +1,7 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
-import Toolbar from "./components/Topbar/Navbar";
+import TableComponent from "./components/Table/Table";
+import Toolbar from "./components/Toolbar/Toolbar";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
       <div>
         <Navbar />
         <Toolbar />
+        <TableComponent />
+        
       </div>
     </>
   );

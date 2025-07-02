@@ -10,9 +10,10 @@ import { LuArrowDownToLine } from "react-icons/lu";
 import { TiExportOutline } from "react-icons/ti";
 import { LuArrowUpToLine } from "react-icons/lu";
 import { TiArrowShuffle } from "react-icons/ti";
+import { PiArrowsSplitFill } from "react-icons/pi";
 const Toolbar: React.FC = () => {
   return (
-    <div className=" border-b border-gray-300 h-[48px] flex items-center px-6 w-full gap-[8px] justify-between">
+    <div className=" border-b border-gray-300 h-[48px] flex items-center px-6 w-full gap-[8px] justify-between fixed top-[54px] bg-white z-10">
       <div className="flex items-center gap-[8px]">
         <Button
           variant="ghost"
@@ -101,10 +102,10 @@ const Toolbar: React.FC = () => {
           
 
           
-          className="text-[14px] bg-[#4B6A4F]"
+          className="text-[14px] W-[150px] bg-[#4B6A4F]"
           style={{ fontWeight: 400 }}
         >
-          <TiArrowShuffle size={20} /> New Action
+          <PiArrowsSplitFill size={20} /> New Action
         </Button>
       </div>
     </div>

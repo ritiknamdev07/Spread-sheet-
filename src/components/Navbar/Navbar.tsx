@@ -8,7 +8,7 @@ import panel from "../../assets/Panel.png";
 
 const Navbar: React.FC = () => {
   return (
-    <nav className=" border-b border-gray-300 h-14 flex items-center px-6 w-full">
+    <nav className=" border-b border-gray-300 h-14 flex items-center px-6 w-full fixed top-0 bg-white z-11">
       <div className="flex items-center justify-between w-full">
         <div className="flex items-center gap-[16px]">
           {/* <LuPanelRight className="text-[#618666] w-[20px] h-[16px] flex items-center" />  */}
