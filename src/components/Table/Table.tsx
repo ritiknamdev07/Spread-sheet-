@@ -267,7 +267,7 @@ const tableData = [
 ];
 
 return (
-    <div className="mt-[103px]">
+    <div className="mt-[103px] mb-[45px]">
         <Table>
             <TableHeader>
                  <TableRow>
@@ -286,7 +286,7 @@ return (
                 </TableRow>
              
                 <TableRow>
-                    <TableHead className="w-[32px] border-r border-gray-300"><CiHashtag size={20} className="text-[#757575]" /></TableHead>
+                    <TableHead className="w-[32px] border-r border-gray-300 bg-[#EEEEEE] text-[#757575]"><CiHashtag size={20} className="text-[#757575]" /></TableHead>
                     <TableHead className="border-r border-gray-300 bg-[#EEEEEE] text-[#757575]"><span className="flex items-center gap-[4px]"><FaBriefcase /> Job Request</span></TableHead>
                     <TableHead className="border-r border-gray-300 bg-[#EEEEEE] text-[#757575]"> <span className="flex items-center gap-[4px]"><FaCalendarAlt /> Submitted</span></TableHead>
                     <TableHead className="border-r border-gray-300 bg-[#EEEEEE] text-[#757575]"> <span className="flex items-center gap-[4px]"><IoIosArrowDropdownCircle /> Status</span></TableHead>
