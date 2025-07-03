@@ -7,6 +7,11 @@ import userAvatar from "../../assets/Ellipse 1.png";
 import panel from "../../assets/Panel.png";
 
 const Navbar: React.FC = () => {
+  const [search, setSearch] = React.useState("");
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
+  };
+  console.log("Search value:", search);
   return (
     <nav className=" border-b border-gray-300 h-14 flex items-center px-6 w-full fixed top-0 bg-white z-11">
       <div className="flex items-center justify-between w-full">
@@ -23,6 +28,8 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-[8px] w-[165px] h-[40px] p-[12px] bg-[#F6F6F6] rounded-[6px]">
             <CiSearch className="w-[16px] h-[16px] text-[#AFAFAF]" />{" "}
             <input
+              value={search}
+              onChange={handleSearchChange}
               type="text"
               placeholder="Search with sheet"
               className="border border-none py-1 px-2 w-[117px] h-[16px] text-[12px]"

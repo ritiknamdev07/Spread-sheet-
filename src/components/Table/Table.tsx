@@ -21,7 +21,7 @@ import { LiaHandPaper } from "react-icons/lia";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
 const TableComponent: React.FC = () => {
-    // Sample data for the table
+  // Sample data for the table
   const tableData = [
     {
       id: 1,
@@ -265,6 +265,50 @@ const TableComponent: React.FC = () => {
     },
   ];
 
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTableCellElement>) => {
+    console.log(e);
+
+    const cell = e.currentTarget;
+    const row = cell.parentElement as HTMLTableRowElement;
+    const table = row?.parentElement;
+    console.log("Cell:", cell);
+    console.log("Row:", row);
+    console.log("Table:", table);
+
+    if (!row || !table) return;
+
+    const rowIndex = Array.from(table.children).indexOf(row);
+    const colIndex = cell.cellIndex;
+
+    let targetCell: HTMLTableCellElement | null = null;
+
+    switch (e.key) {
+      case "ArrowRight":
+        targetCell = row.cells[colIndex + 1] as HTMLTableCellElement;
+        break;
+      case "ArrowLeft":
+        targetCell = row.cells[colIndex - 1] as HTMLTableCellElement;
+        break;
+      case "ArrowDown":
+        const nextRow = table.children[rowIndex + 1] as HTMLTableRowElement;
+        if (nextRow)
+          targetCell = nextRow.cells[colIndex] as HTMLTableCellElement;
+        break;
+      case "ArrowUp":
+        const prevRow = table.children[rowIndex - 1] as HTMLTableRowElement;
+        if (prevRow)
+          targetCell = prevRow.cells[colIndex] as HTMLTableCellElement;
+        break;
+      default:
+        return;
+    }
+
+    if (targetCell) {
+      e.preventDefault();
+      targetCell.focus();
+    }
+  };
+
   return (
     <div className="mt-[103px] mb-[45px]">
       <Table>
@@ -365,16 +409,32 @@ const TableComponent: React.FC = () => {
         <TableBody>
           {tableData.map((row) => (
             <TableRow key={row.id}>
-              <TableCell className="border-r border-gray-300 text-[#757575]">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300 text-[#757575]"
+              >
                 {row.id}
               </TableCell>
-              <TableCell className="border-r border-gray-300">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300"
+              >
                 {row.jobRequest}
               </TableCell>
-              <TableCell className="border-r border-gray-300 text-right">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300 text-right"
+              >
                 {row.submitted}
               </TableCell>
-              <TableCell className="border-r border-gray-300 text-center">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300 text-center"
+              >
                 {row.status === "In-process" && (
                   <span
                     style={{
@@ -424,10 +484,18 @@ const TableComponent: React.FC = () => {
                   </span>
                 )}
               </TableCell>
-              <TableCell className="border-r border-gray-300">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300"
+              >
                 {row.submitter}
               </TableCell>
-              <TableCell className="border-r border-gray-300">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300"
+              >
                 <a
                   href={`https://${row.url}`}
                   target="_blank"
@@ -436,10 +504,18 @@ const TableComponent: React.FC = () => {
                   {row.url}
                 </a>
               </TableCell>
-              <TableCell className="border-r border-gray-300">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300"
+              >
                 {row.assigned}
               </TableCell>
-              <TableCell className="border-r border-gray-300 text-center">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300 text-center"
+              >
                 <span
                   style={{
                     color:
@@ -454,10 +530,18 @@ const TableComponent: React.FC = () => {
                   {row.priority}
                 </span>
               </TableCell>
-              <TableCell className="border-r border-gray-300 text-right">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300 text-right"
+              >
                 {row.dueDate}
               </TableCell>
-              <TableCell className="border-r border-gray-300  text-right">
+              <TableCell
+                tabIndex={0}
+                onKeyDown={handleKeyDown}
+                className="border-r border-gray-300 text-right"
+              >
                 {row.estValue}
               </TableCell>
             </TableRow>
